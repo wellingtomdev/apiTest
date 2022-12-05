@@ -1,6 +1,7 @@
 const args = process.argv.slice(2)
-const [port] = args
-if(!port) { throw new Error('Port is required') }
+const port = args[0] || process.env.PORT
+if(!port) { throw new Error('No port specified') }
+
 const http = require('http')
 
 const server = http.createServer((req, res) => {
